@@ -1,5 +1,8 @@
 {{ if and .Site.DisqusShortname (index .Params "comments" | default "true") (not .Site.IsServer) }}
 <section class="comments">
-	{{ template "_internal/disqus.html" . }}
+	<!-- {{ template "_internal/disqus.html" . }} -->
+	{{ if (and .Site.Params.remark42SiteID .Params.comments) }}
+		<div id="remark42"></div>
+	{{ end }}
 </section>
 {{ end }}
